@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
       <body>
         <div className="flex flex-col min-h-screen">
           <TopBar />
-          <div className={`${navbarFixed ? 'fixed top-0 w-full z-50' : ''}`}>
+          <div className={`${navbarFixed ? 'fixed top-0 lg:w-full w-full z-50' : ''}`}>
             <Navbar />
           </div>
           <NavigationMenu />

@@ -16,7 +16,7 @@ const Menu = () => {
             <MenuList open={open}  handleClose={handleClose} />
         </div>
         <div className="flex flex-row items-center">
-            <Image src={menuLogo} height={26} width={26} alt="Menu" onClick={handleOpen} className="cursor-pointer " />
+            <Image src={menuLogo} height={30} width={30} alt="Menu" onClick={handleOpen} className="cursor-pointer mx-2 lg:ml-2 " />
         </div>
         </div>
         

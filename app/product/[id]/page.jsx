@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Button } from '../../components/ui/button';
 import CartWhite from '../../components/icon/icons/cartWhite.svg';
 import { Input } from '../../components/ui/input';
+import BtnRoterBack from '../../components/BtnRoterBack';
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -31,7 +32,8 @@ const ProductDetail = () => {
 
     return (
         <>
-            <div className='bg-white rounded-xl shadow-md overflow-hidden px-4 py-20 hover:shadow-orange-light hover:border-orange-dark hover:border flex flex-row mx-auto items-center justify-center'>
+        <BtnRoterBack />
+            <div className='bg-white px-4 py-20 hover:shadow-orange-light flex flex-col lg:flex-row mx-auto items-center justify-center'>
                 <div>
                     <Image src={singleProduct.imageUrl} alt={singleProduct.name} width={500} height={500} className='mx-auto' />
                 </div>

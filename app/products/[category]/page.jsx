@@ -14,10 +14,10 @@ const Category = () => {
 
     return (
         <>
-        <div className="flex flex-row items-center">
+        <div className=" bg-grey-light flex flex-row items-center">
             <BtnRoterBack />
             <h1 className="">
-                Estás viendo la categoría de: <span className="font-extrabold">{decodedCategory}</span>
+                Estás viendo la categoría de: <span className="font-extrabold capitalize">{decodedCategory}</span>
             </h1>
         </div>
             <ProductList data={filteredProducts} />
