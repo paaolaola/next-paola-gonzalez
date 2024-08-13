@@ -5,13 +5,14 @@ import mockDataPets from '../data/products';
 import BtnRoterBack from '../components/BtnRoterBack';
 
 
-const Products = () => {
+const Categories = () => {
     return (
         <>
         <BtnRoterBack />
+        <h1 className='text-2xl text-center font-extrabold'>La mejor calidad para tu peludito incondicional 🐈 🐶</h1>
             <ProductList data={mockDataPets} />
         </>
     );
 };
 
-export default Products;
+export default Categories;

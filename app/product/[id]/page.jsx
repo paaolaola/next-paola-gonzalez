@@ -33,23 +33,29 @@ const ProductDetail = () => {
     return (
         <>
         <BtnRoterBack />
-            <div className='bg-white px-4 py-20 hover:shadow-orange-light flex flex-col lg:flex-row mx-auto items-center justify-center'>
+            <div className='bg-white px-4 py-20 hover:shadow-orange-light flex flex-col justify-center items-center lg:flex-row mx-auto border w-fit border-orange-dark rounded-xl my-20'>
                 <div>
                     <Image src={singleProduct.imageUrl} alt={singleProduct.name} width={500} height={500} className='mx-auto' />
                 </div>
-                <div className='p-4 text-gray-600 flex flex-col items-start'>
-                    <h2 className='font-semibold text-3xl my-2'>{singleProduct.name}</h2>
-                    <p className='text-orange-dark text-sm'>{singleProduct.category}</p>
-                    <p className='text-gray-500 text-base overflow-hidden text-ellipsis my-2'>{singleProduct.description}</p>
-                    <p className='text-primary-red-light font-bold my-2 text-2xl'>${singleProduct.price}</p>
-                    <div className='flex flex-row items-center '>
-                    <div className='flex flex-row my-10'>
-                        <Button onClick={incrementQuantity}>+</Button>
+            <div className='p-4 text-gray-600 flex flex-col items-start w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg'>
+    <h2 className='font-semibold text-3xl my-2'>{singleProduct.name}</h2>
+    <p className='text-orange-dark font-medium text-sm border-2 border-orange-dark rounded-xl w-fit px-2'>
+        {singleProduct.brand}
+    </p>
+    <p className='text-gray-500 text-base overflow-hidden mx-auto text-ellipsis my-2'>
+        {singleProduct.description}
+    </p>
+    <p className='text-primary-red-light font-bold my-2 text-2xl'>
+        ${singleProduct.price}
+    </p>
+    <div className='flex flex-row items-center '>
+        <div className='flex flex-row my-10'>
+            <Button onClick={decrementQuantity}>-</Button>
+            <Input value={quantity} onChange={handleInputChange} className="w-20 text-center mx-2"/>
+            <Button onClick={incrementQuantity}>+</Button>
+        </div>
+    </div>
 
-                        <Input value={quantity} onChange={handleInputChange} className="w-20 text-center mx-2"/>
-
-                        <Button onClick={decrementQuantity}>-</Button>
-                    </div>
                     <div>
                     <Link href={`/cart`}>
                         <Button className='bg-primary-red flex items-center justify-center w-48 h-14 my-4 mx-10'>
@@ -60,7 +66,7 @@ const ProductDetail = () => {
                     </div>
                     </div>
                 </div>
-            </div>
+        
         </>
     );
 };
