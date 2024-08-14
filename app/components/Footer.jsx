@@ -12,7 +12,7 @@ const Footer = () => {
                     <Link href='/'>
                         <div className='flex items-center'>
                             <Image src={Paw} alt='Logo' height={30} width={30} />
-                            <h1 className={`ml-2 text-3xl font-pacifico ${styles.text}`}>De Gatos y Perros</h1>
+                            <h1 className={`ml-2 lg:ml-4 w-72 text-3xl font-pacifico ${styles.text}`}>De Gatos y Perros</h1>
                         </div>
                     </Link>
                     <p className={`mt-4 mb-10 text-sm font-edu ${styles.text}`}>La tienda online para tu peludito incondicional.</p>

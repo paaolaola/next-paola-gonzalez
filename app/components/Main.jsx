@@ -33,10 +33,10 @@ const formatCategoryForURL = (title) =>
     .replace(/ú/g, "u");
 
 const subcategories = [
-  { src: Comedero, category: "Accesorios", subcategory: "Platos", ofert: "Ofertas destacadas", desc: "-10%" },
-  { src: Ropa, category: "Vestuario", subcategory: "Parkas", ofert: "Ofertas destacadas", desc: "-20%" },
-  { src: Cama, category: "Comodidad", subcategory: "Camas", ofert: "Variedades y descuentos", desc: "-30%" },
-  { src: Collar, category: "Transporte y seguridad", subcategory: "Correas", ofert: "Ofertas destacadas", desc: "-40%" }
+  { src: Comedero, category: "Accesorios", subcategory: "Platos", ofert: "Ofertas destacadas", discount: "-10%" },
+  { src: Ropa, category: "Vestuario", subcategory: "Parkas", ofert: "Ofertas destacadas", discount: "-20%" },
+  { src: Cama, category: "Comodidad", subcategory: "Camas", ofert: "Variedades y descuentos", discount: "-30%" },
+  { src: Collar, category: "Transporte y seguridad", subcategory: "Correas", ofert: "Ofertas destacadas", discount: "-40%" }
 ];
 
   return (
@@ -72,7 +72,9 @@ const subcategories = [
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={Higiene} alt="Higiene" className="z-50 flex rounded-3xl object-cover  lg:h-100 "/>
+              <Link href="/categories/salud-y-bienestar">
+              <Image src={Higiene} alt="Salud y bienestar" className="z-50 flex rounded-3xl object-cover  lg:h-100 "/>
+              </Link>
             </SwiperSlide>
           </Swiper>
         </div>
@@ -86,11 +88,11 @@ const subcategories = [
         </div>
       </div>
       
-   <div className='flex flex-col lg:flex-row items-center justify-evenly px-4 lg:px-8 bg-grey-light py-10'>
+  <div className='flex flex-col lg:flex-row items-center justify-evenly px-4 lg:px-8 bg-grey-light py-10'>
       {subcategories.map((product, id) => (
         <div key={id} className="font-bebas text-primary-red text-center w-full lg:w-auto mb-6 lg:mb-0">
           <div className="relative mx-auto w-60">
-            <span className="bg-primary-red-light rounded-full p-4 text-grey-light absolute top-2 left-2 sm:top-2 sm:left-1 lg:left-2 z-10">{product.desc}</span>
+            <span className="bg-blue-500 text-xl rounded-full p-4 text-grey-light absolute top-2 left-2 sm:top-2 sm:left-1 lg:left-2 z-10">{product.discount}</span>
             <Link
               href={`/categories/${formatCategoryForURL(product.category)}/${formatCategoryForURL(product.subcategory)}`}
             >

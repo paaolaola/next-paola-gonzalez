@@ -6,6 +6,7 @@ const mockDataPets = [
     subcategory: "Alimento para Perros",
     price: 70000,
     brand:"Brit",
+    status: true,
     description: "Comida para perros con sabor a pollo de alta calidad. Nutricionalmente equilibrada para todas las razas.",
     imageUrl: "/images/brit-pollo.jpg"
   },
@@ -17,6 +18,7 @@ const mockDataPets = [
     price: 58000,
     description: "Comida para gatos con receta de salmón premium. Perfecta para gatos adultos.",
     brand:"Fellini",
+    status: true,
     imageUrl: "/images/fellini-salmon.jpg"
   },
   {
@@ -27,6 +29,7 @@ const mockDataPets = [
     price: 16990,
     description: "Juguete resistente con sonido para perros. Ideal para jugar y para la salud dental.",
     brand:"Pawise",
+    status: true,
     imageUrl: "/images/hueso.jpg"
   },
   {
@@ -37,6 +40,7 @@ const mockDataPets = [
     price: 5990,
     description: "Juguete interactivo con pelo para gatos. Fomenta la actividad física y la estimulación mental.",
     brand:"Catnip",
+    status: false,
     imageUrl: "/images/varita.jpg"
   },
   {
@@ -45,8 +49,10 @@ const mockDataPets = [
     category: "Comodidad",
     subcategory: "Camas",
     price: 46900,
+    discount: 30,
     description: "Cama cómoda y espaciosa para perros. Adecuada para razas grandes.",
     brand:"Petmate",
+    status: true,
     imageUrl: "/images/camaxl.jpg"
   },
   {
@@ -57,6 +63,7 @@ const mockDataPets = [
     price: 22000,
     description: "Arena para gatos de alta absorción y agregante. Fácil de limpiar y controla los olores de manera efectiva.",
     brand:"Cat's Pride",
+    status: true,
     imageUrl: "/images/arena.jpg"
   },
   {
@@ -67,6 +74,7 @@ const mockDataPets = [
     price: 6980,
     description: "Champú suave para perros con aloe vera. Hidratante y limpiador para el pelaje de tu perro.",
     brand: "Pet Society",
+    status: true,
     imageUrl: "/images/champu.jpg"
   },
   {
@@ -77,6 +85,7 @@ const mockDataPets = [
     price: 55990,
     description: "Transportín para gatos muy espaciosa y lujosa. Cómoda y fácil de llevar para visitas al veterinario.",
     brand:"Petmate",
+    status: true,
     imageUrl: "/images/transporte.jpg"
   },
   {
@@ -85,8 +94,10 @@ const mockDataPets = [
     category: "Transporte y seguridad",
     subcategory: "Correas",
     price: 11990,
+    discount: 40,
     description: "Correa con arnés para gatitos. La correa tiene una tecnología resistente. Hecho para gatitos de tamaño mediano. El arnés es adaptable y le da comodidad a tu mascota.",
     brand:"Zeecat",
+    status: true,
     imageUrl: "/images/arnes.jpg"
   },
     {
@@ -97,6 +108,7 @@ const mockDataPets = [
     price: 7990,
     description: "El complemento ideal a la hora de pasear a tu amigo perruno. Bolsas de desechos biodegradables y resistentes. 100% compostables. 4 rollos con 10 bolsas cada uno.",
     brand:"I am not plastic",
+    status: true,
     imageUrl: "/images/bolsa.jpg"
   },
      {
@@ -106,7 +118,9 @@ const mockDataPets = [
     subcategory: "Platos",
     price: 10990,
     description: "Plato para perros de tamaño mediano. Resistente y duradero. Fácil de limpiar.",
+    discount: 10,
     brand:"Redlemon",
+    status: true,
     imageUrl: "/images/plato.jpg"
   },
     {
@@ -115,8 +129,10 @@ const mockDataPets = [
     category: "Vestuario",
     subcategory: "Parkas",
     price: 15990,
+    discount: 20,
     description: "Parka para perros de tamaño grande. Resistente al agua y al viento. Forrada con tela polar para mantener a tu mascota abrigada en invierno.",
     brand:"Petmate",
+    status: false,
     imageUrl: "/images/parka.jpg"
   }
 ];
