@@ -56,51 +56,50 @@ const ProductDetail = () => {
                         <p className='text-primary-red-light text-2xl font-bold'>${singleProduct.price}</p>
                     )}
 
-{singleProduct.status === true ? (
-    <div className='flex flex-row items-center'>
-        <div className='flex flex-row my-10'>
-            <Button onClick={decrementQuantity}>-</Button>
-            <Input value={quantity} onChange={handleInputChange} className='w-20 text-center mx-2' />
-            <Button onClick={incrementQuantity}>+</Button>
-        </div>
-    </div>
-) : (
-    <div className='flex flex-row items-center'>
-        <div className='flex flex-row my-10'>
-            <Button disabled variant='disabled' onClick={decrementQuantity}>-</Button>
-            <Input disabled value={quantity} onChange={handleInputChange} className='w-20 text-center mx-2' />
-            <Button disabled variant='disabled' onClick={incrementQuantity}>+</Button>
-        </div>
-    </div>
-)}
+                    {singleProduct.status === true ? (
+                        <div className='flex flex-row items-center'>
+                            <div className='flex flex-row my-10'>
+                                <Button onClick={decrementQuantity}>-</Button>
+                                <Input value={quantity} onChange={handleInputChange} className='w-20 text-center mx-2' />
+                                <Button onClick={incrementQuantity}>+</Button>
+                            </div>
+                        </div>
+                    ) : (
+                        <div className='flex flex-row items-center'>
+                            <div className='flex flex-row my-10'>
+                                <Button disabled variant='disabled' onClick={decrementQuantity}>
+                                    -
+                                </Button>
+                                <Input disabled value={quantity} onChange={handleInputChange} className='w-20 text-center mx-2' />
+                                <Button disabled variant='disabled' onClick={incrementQuantity}>
+                                    +
+                                </Button>
+                            </div>
+                        </div>
+                    )}
                     {singleProduct.discount > 0 ? (
                         <>
-                            <div className='flex flex-row items-center space-x-2'>
-                                <span className='text-primary-red-light text-lg font-bold'>${price - price * (discount / 100)}</span>
-                                <p className='text-slate-500 text-md line-through font-medium'>${price}</p>
-                            </div>
                             <p className='text-slate-500'>{singleProduct.status === true ? 'Disponible' : 'Agotado'}</p>
                         </>
                     ) : (
                         <>
-                            <p className='text-primary-red-light text-lg font-bold'>${singleProduct.price}</p>
+                            
                             <p className='text-slate-500'>{singleProduct.status === true ? 'Disponible' : 'Agotado'}</p>
                         </>
                     )}
                     {singleProduct.status === true ? (
                         <Link href={`/cart`}>
                             <Button className='bg-primary-red flex items-center justify-center w-48 h-14 my-4 mx-10'>
-                        <Image src={CartWhite} alt='Cart' width={30} height={30} className='mr-2' />
-                        {singleProduct.status === true ? 'Añadir al carrito' : 'Agotado'}
-                    </Button>
+                                <Image src={CartWhite} alt='Cart' width={30} height={30} className='mr-2' />
+                                {singleProduct.status === true ? 'Añadir al carrito' : 'Agotado'}
+                            </Button>
                         </Link>
                     ) : (
                         <Button className='bg-gray-400 text-grey-light flex items-center justify-center w-48 h-14 my-4 mx-10' variant='disabled'>
-                        <Image src={CartWhite} alt='Cart' width={30} height={30} className='mr-2' />
+                            <Image src={CartWhite} alt='Cart' width={30} height={30} className='mr-2' />
                             Agotado
                         </Button>
                     )}
-                  
                 </div>
             </div>
         </>
