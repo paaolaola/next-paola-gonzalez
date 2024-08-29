@@ -7,7 +7,6 @@ import { PawPrint } from 'lucide-react';
 import { Cat } from 'lucide-react';
 import { Dog } from 'lucide-react';
 import { Lock } from 'lucide-react';
-import NavigationMenu from '../NavigationMenu';
 
 const MenuList = ({ open, handleClose }) => {
     return (

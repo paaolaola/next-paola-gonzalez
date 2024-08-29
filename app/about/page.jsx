@@ -1,5 +1,5 @@
 
-const page = () => {
+const About = () => {
   return (
     <div>
       <h1>Sobre Nosotros</h1>
@@ -14,4 +14,4 @@ Con un enfoque en la excelencia y la innovación, hemos diseñado nuestra tienda
   )
 }
 
-export default page
+export default About

@@ -36,6 +36,7 @@ const getProducts = async () => {
     
     const products = await response.json();
     return products;
+
 }
 
 const Categories = () => {
@@ -59,6 +60,7 @@ const Categories = () => {
             <BtnRoterBack />
             <h1 className='text-2xl px-6 text-center font-extrabold'>La mejor calidad para tu peludito incondicional 🐈 🐶</h1>
             <ProductList data={products} />
+            
         </>
     );
 };
