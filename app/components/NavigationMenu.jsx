@@ -4,7 +4,6 @@ import Link from 'next/link';
 import mockDataPets from '../data/products';
 import { usePathname } from 'next/navigation';
 import { formatCategoryForURL } from '../utils/routeHelp';
-import { FishSymbol } from 'lucide-react';
 
 
 import {
@@ -24,7 +23,7 @@ const NavMenu = () => {
         <>
        <div className="bg-grey-light border border-orange-light px-4 py-4 md:px-6 md:py-4 font-bebas text-base flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-0 text-blue-400 z-40">
     <h1 className="text-xl hover:text-blue-500 md:px-8 w-72">
-        <Link href="/categories">Ver todas las categorías</Link>
+        <Link href="/categorias">Ver todas las categorías</Link>
     </h1>
     <div className="flex flex-col md:flex-row items-center justify-center w-full">
         <ul className="flex flex-col md:flex-row md:space-x-4 lg:text-xl text-sm w-full md:w-auto space-y-2 lg:space-y-0 md:space-y-0">
@@ -32,17 +31,17 @@ const NavMenu = () => {
                 <NavigationMenu key={category.category.toLowerCase()} className="w-full">
                     <NavigationMenuList>
                         <NavigationMenuItem>
-                            <Link href={`/categories/${formatCategoryForURL(category.category)}`} legacyBehavior passHref>
+                            <Link href={`/categorias/${formatCategoryForURL(category.category)}`} legacyBehavior passHref>
                                 <NavigationMenuTrigger
                                     className={`text-xl font-bebas text-orange-light hover:text-orange-dark ${
-                                        pathname === `/categories/${formatCategoryForURL(category.category)}` ? 'text-orange-dark underline' : 'text-orange-light'
+                                        pathname === `/categorias/${formatCategoryForURL(category.category)}` ? 'text-orange-dark underline' : 'text-orange-light'
                                     }`}
                                 >
                                     {category.category}
                                 </NavigationMenuTrigger>
                             </Link>
                             <NavigationMenuContent>
-                                <ul className="list-none">
+                                <ul className="list-none w-48">
                                     {subcategories
                                         .filter((sub) => sub.category === category.category)
                                         .map((subcategory) => (
@@ -52,11 +51,11 @@ const NavMenu = () => {
                                             >
                                                 <Link
                                                     className={
-                                                        pathname === `/categories/${formatCategoryForURL(category.category)}/${formatCategoryForURL(subcategory.subcategory)}`
+                                                        pathname === `/categorias/${formatCategoryForURL(category.category)}/${formatCategoryForURL(subcategory.subcategory)}`
                                                             ? 'text-orange-dark underline'
                                                             : 'text-orange-light'
                                                     }
-                                                    href={`/categories/${formatCategoryForURL(category.category)}/${formatCategoryForURL(subcategory.subcategory)}`}
+                                                    href={`/categorias/${formatCategoryForURL(category.category)}/${formatCategoryForURL(subcategory.subcategory)}`}
                                                 >
                                                     {subcategory.subcategory}
                                                 </Link>

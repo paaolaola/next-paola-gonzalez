@@ -28,20 +28,22 @@ const NavigationMenuTrigger = React.forwardRef(({ children, ...props }, ref) => 
   };
 
   return (
-     <NavigationMenuPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        navigationMenuTriggerStyle(), 
-        "group flex items-center justify-between w-full" 
-      )}
-      {...props}
-    >
-      {children}  
-      <ChevronDown
-        className="h-3 w-3 ml-2 transition duration-200 hidden lg:block md:block group-data-[state=open]:rotate-180"
-        aria-hidden="true"
-      />
-    </NavigationMenuPrimitive.Trigger>
+    <NavigationMenuPrimitive.Trigger
+  ref={ref}
+  className={cn(
+    navigationMenuTriggerStyle(), 
+    "group flex items-center justify-end w-full"
+  )}
+  {...props}
+>
+  <div className="flex flex-row items-center space-x-2">
+  <span className="mr-auto">{children}</span>  
+  <ChevronDown
+    className="h-3 w-3 ml-auto transition duration-200 hidden lg:block md:block group-data-[state=open]:rotate-180"
+    aria-hidden="true"
+  />
+  </div>
+</NavigationMenuPrimitive.Trigger>
   );
 });
 

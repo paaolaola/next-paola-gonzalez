@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image"
-import {Button} from "../components/ui/button";
+import { Button } from "../components/ui/button";
 import Perro from "../../public/images/ofertasperro.jpg"
 import Gato  from "../../public/images/ofertasgato.jpg"
 import Ofertas  from "../../public/images/ofertas.jpg"
@@ -14,6 +14,7 @@ import Alimento from "../../public/images/alimento.png"
 import Juguetes from "../../public/images/juguetes.png"
 import Bolsas from "../../public/images/bolsas.jpg"
 import Higiene from "../../public/images/higiene.png"
+import NavigationMenu from "../components/NavigationMenu";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Parallax, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -41,8 +42,9 @@ const subcategories = [
 
   return (
     <>
+    <NavigationMenu />
       <div className='flex flex-col lg:flex-row items-center justify-center  bg-gray-200 gap-6 py-6'>
-        <div className='w-[400px] md:w-[600px] px-8 lg:px-0 relative z-10 '>
+        <div className='w-[400px] md:w-[600px] px-8 lg:px-0 relative z-0 '>
           <Swiper
             style={{
               '--swiper-navigation-color': '#e89005',
@@ -62,24 +64,24 @@ const subcategories = [
             className="mySwiper"
           >
             <SwiperSlide>
-              <Link href="/categories/alimentos">
+              <Link href="/categorias/alimentos">
               <Image src={Alimento} alt="Alimento" className="z-50 flex rounded-3xl object-cover  lg:h-100" />
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="/categories/juguetes">
+              <Link href="/categorias/juguetes">
               <Image src={Juguetes} alt="Juguetes" className="z-50 flex rounded-3xl object-cover  lg:h-100 "/>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="/categories/salud-y-bienestar">
+              <Link href="/categorias/salud-y-bienestar">
               <Image src={Higiene} alt="Salud y bienestar" className="z-50 flex rounded-3xl object-cover  lg:h-100 "/>
               </Link>
             </SwiperSlide>
           </Swiper>
         </div>
         <div className='px-4 relative'>
-          <Link href='/categories/salud-y-bienestar/bolsas-compostables'>
+          <Link href='/categorias/salud-y-bienestar/bolsas-compostables'>
           <div className="relative">
           <Image src={Bolsas} alt='Bolsas' className='relative my-4 rounded-3xl object-cover lg:h-80 lg:w-80 ' />
           <Button className='h-10 absolute top-56 left-60 sm:top-3/4 sm:left-3/4 lg:left-52 lg:top-52 z-10' variant='transparent' >Ver más</Button>
@@ -94,7 +96,7 @@ const subcategories = [
           <div className="relative mx-auto w-60">
             <span className="bg-blue-500 text-xl rounded-full p-4 text-grey-light absolute top-2 left-2 sm:top-2 sm:left-1 lg:left-2 z-10">{product.discount}</span>
             <Link
-              href={`/categories/${formatCategoryForURL(product.category)}/${formatCategoryForURL(product.subcategory)}`}
+              href={`/categorias/${formatCategoryForURL(product.category)}/${formatCategoryForURL(product.subcategory)}`}
             >
               <Image src={product.src} alt={product.subcategory} className="my-4 mx-auto" width={280} height={360} />
             </Link>
@@ -107,12 +109,12 @@ const subcategories = [
       
       <div className='flex flex-col lg:flex-row items-center justify-center gap-6 bg-gray-200 px-4 lg:px-8 py-10'>
     <div className="lg:w-1/3">
-    <Link href="/categories/comodidad/camas">
+    <Link href="/categorias/comodidad/camas">
         <Image src={Perro} alt="Ofertas para perros" className="rounded-3xl object-cover lg:h-60" />
         </Link>
     </div>
     <div>
-      <Link href="/categories/transporte-y-seguridad/correas">
+      <Link href="/categorias/transporte-y-seguridad/correas">
         <Image src={Gato} alt="Ofertas para gatos" className="rounded-3xl  lg:w-48 lg:h-60" />
         </Link>
     </div>

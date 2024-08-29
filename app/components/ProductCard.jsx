@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
       -{discount}%
     </span>
   )}
-  <Image src={imageUrl} alt={name} width={150} height={150} className='object-cover mx-auto' />
+  <Image src={imageUrl} alt={name} width={150} height={150} className='object-cover mx-auto' priority />
 </Link>
 <div className='p-4 text-gray-600 flex flex-col justify-around flex-grow'>
   <h2 className='font-semibold text-base my-2'>{name}</h2>
@@ -29,16 +29,16 @@ const ProductCard = ({ product }) => {
       </span>
       <p className='text-slate-500 text-md line-through font-medium'>${price}</p>
     </div>
-      <p className='text-slate-500'>{status === true
-        ? 'Disponible' : 'Agotado'
-        }</p>
+      {status === true
+        ? <p className='text-blue-500 text-sm'>Disponible</p> : <p className='text-gray-500 text-sm'>Agotado</p>
+        }
         </>
   ) : (
     <>
     <p className='text-primary-red-light text-lg font-bold'>${price}</p>
-    <p className='text-slate-500'>{status === true
-        ? 'Disponible' : 'Agotado'
-        }</p>
+    {status === true
+        ? <p className='text-blue-500 text-sm'>Disponible</p> : <p className='text-gray-500 text-sm'>Agotado</p>
+        }
         </>
   )}
 </div>
@@ -68,5 +68,3 @@ const ProductCard = ({ product }) => {
 }
 
 export default ProductCard;
-
-         

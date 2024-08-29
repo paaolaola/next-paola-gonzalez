@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import Footer from "./components/Footer";
 import Navbar from "./components/navbar/Navbar";
 import TopBar from "./components/topbar/TopBar";
-import NavigationMenu from "./components/NavigationMenu";
 import {metadata} from "./data/metadata";
+import { CartProvider } from "./components/context/CartContext";
 import "../app/globals.css";
+import { AuthProvider } from './components/context/AuthContext';
 
 
 export default function RootLayout({ children }) {
@@ -42,17 +43,20 @@ export default function RootLayout({ children }) {
         <meta property="og:image" content={metadata.openGraph.image} />
       </head>
       <body>
+        <AuthProvider>
+        <CartProvider>
         <div className="flex flex-col min-h-screen">
           <TopBar />
           <div className={`${navbarFixed ? 'fixed top-0 lg:w-full w-full z-50' : ''}`}>
             <Navbar />
           </div>
-          <NavigationMenu />
           <main className="flex-grow pt-[var(--topbar-height)]">
             {children}
           </main>
           <Footer />
         </div>
+        </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

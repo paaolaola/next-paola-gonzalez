@@ -6,7 +6,7 @@ import SocialMediaBtn from './SocialMediaBtn';
 
 const Footer = () => {
     return (
-        <div className='bg-orange-dark text-grey-light px-10 py-10 sm:px-10 md:px-20 md:py-10'>
+        <div className='bg-orange-dark text-grey-light px-4 py-10 sm:px-10 md:px-10 md:py-10'>
             <div className='container mx-auto flex flex-col md:flex-row items-start justify-between'>
                 <div className='flex flex-col items-start mb-6 md:mb-0'>
                     <Link href='/'>
@@ -26,15 +26,15 @@ const Footer = () => {
                         </li>
                         <li className={`mb-8 md:mb-0 text-xl md:text-xl ${styles.text}`}>
                             <p className="font-bebas">Productos</p>
-                            <Link href='/categories/juguetes' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Juguetes</p></Link>
-                            <Link href='/categories/salud-y-bienestar' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Salud y Bienestar</p></Link>
-                            <Link href='/categories/comodidad' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Comodidad</p></Link>
-                            <Link href='/categories/transporte-y-seguridad' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Transporte y Seguridad</p></Link>
+                            <Link href='/categorias/juguetes' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Juguetes</p></Link>
+                            <Link href='/categorias/salud-y-bienestar' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Salud y Bienestar</p></Link>
+                            <Link href='/categorias/comodidad' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Comodidad</p></Link>
+                            <Link href='/categorias/transporte-y-seguridad' className='text-sm hover:underline'><p className='text-slate-200 font-bebas mt-1'>Transporte y Seguridad</p></Link>
                         </li>
                         <li className={`mb-8 md:mb-0 text-xl md:text-xl ${styles.text}`}>
                             <p className="font-bebas">Alimentos</p>
-                            <Link href='/categories/alimentos' className='text-sm hover:underline'><p className='mt-1 font-bebas text-slate-200'>Alimento Light</p></Link>
-                            <Link href='/categories/alimentos' className='text-sm hover:underline'><p className='mt-1 font-bebas text-slate-200'>Adulto</p></Link>
+                            <Link href='/categorias/alimentos' className='text-sm hover:underline'><p className='mt-1 font-bebas text-slate-200'>Alimento Light</p></Link>
+                            <Link href='/categorias/alimentos' className='text-sm hover:underline'><p className='mt-1 font-bebas text-slate-200'>Adulto</p></Link>
                         </li>
                         <li className={`mb-8 md:mb-0 text-xl md:text-xl ${styles.text}`}>
                             <p className="font-bebas">Nosotros</p>

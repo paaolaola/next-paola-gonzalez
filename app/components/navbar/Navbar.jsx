@@ -2,10 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Menu from './Menu';
 import styles from '../../styles/styles.module.scss';
-import Cart from '../icon/icons/cart.svg';
 import Paw from '/public/images/paw.png';
 import Search from '../search/SearchProducts';
-import '../../styles/styles.module.scss';
+import CartWidget from '../../components/ui/CartWidget';
+
 
 const Navbar = () => {
     return (
@@ -21,24 +21,23 @@ const Navbar = () => {
                 <div className='flex-row items-center hidden lg:block lg:mb-0'>
                     <Search />
                 </div>
-                <div className='flex flex-row mt-4 lg:mt-0 '>
-                    <nav className='flex flex-row lg:flex-row items-center w-full justify-end lg:w-full'>
-                        <ul className='flex flex-col lg:flex-row items-center w-full lg:w-auto'>
-                            <li className={`text-lg lg:text-xl px-2 lg:px-4 font-bebas ${styles.text} hidden lg:block`}>
-                               <Link href='/login'>Iniciar sesión</Link>
-                            </li>
-                        </ul>
-                        <div className='flex justify-end lg:justify-start w-full lg:w-auto'>
-                            <Link href='/cart'>
-                                <Image src={Cart} height={30} width={30} alt='Carro' className='cursor-pointer lg:mx-0' />
-                            </Link>
-                        </div>
-
-                        <div className='flex justify-center lg:w-auto'>
-                            <Menu />
-                        </div>
-                    </nav>
-                </div>
+                <div className='flex flex-row mt-4 lg:mt-0'>
+    <nav className='flex flex-row lg:flex-row items-center w-full justify-between lg:w-full'>
+        <ul className='flex flex-col lg:flex-row items-center w-full lg:w-auto'>
+            <li className={`text-lg lg:text-xl px-2 lg:px-4 font-bebas ${styles.text} hidden lg:block`}>
+                <Link href='/login'>Iniciar sesión</Link>
+            </li>
+        </ul>
+        <div className='flex items-center space-x-4'>
+            <div className='relative flex justify-end lg:justify-start w-full lg:w-auto'>
+                <CartWidget />
+            </div>
+            <div className='flex justify-center lg:w-auto'>
+                <Menu />
+            </div>
+        </div>
+    </nav>
+</div>
             </div>
         </div>
     );

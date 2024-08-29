@@ -1,6 +1,6 @@
 const mockDataPets = [
   {
-    id: 1,
+    id: "brit-adulto-sabor-pollo-1",
     name: "Brit Perro Adulto Sabor Pollo",
     category: "Alimentos",
     subcategory: "Alimento para Perros",
@@ -11,7 +11,7 @@ const mockDataPets = [
     imageUrl: "/images/brit-pollo.jpg"
   },
   {
-    id: 2,
+    id: "fellini-salmon-2",
     name: "Fellini Gato Adulto - Receta de Salmón Light",
     category: "Alimentos",
     subcategory: "Alimento para Gatos",
@@ -22,7 +22,7 @@ const mockDataPets = [
     imageUrl: "/images/fellini-salmon.jpg"
   },
   {
-    id: 3,
+    id: "hueso-squeaky-3",
     name: "Hueso Squeaky para Perros - Talla M",
     category: "Juguetes",
     subcategory: "Juguetes interactivos",
@@ -33,7 +33,7 @@ const mockDataPets = [
     imageUrl: "/images/hueso.jpg"
   },
   {
-    id: 4,
+    id: "varita-pelos-4",
     name: "Varita pelos para Gatos",
     category: "Juguetes",
     subcategory: "Juguetes interactivos",
@@ -44,7 +44,7 @@ const mockDataPets = [
     imageUrl: "/images/varita.jpg"
   },
   {
-    id: 5,
+  id: "cama-xl-5",
     name: "Cama para Perros - XL",
     category: "Comodidad",
     subcategory: "Camas",
@@ -56,7 +56,7 @@ const mockDataPets = [
     imageUrl: "/images/camaxl.jpg"
   },
   {
-    id: 6,
+    id: "arena-gatos-6",
     name: "Arena para Gatos - 9 Kilos",
     category: "Salud y bienestar",
     subcategory: "Arenas sanitarias",
@@ -67,7 +67,7 @@ const mockDataPets = [
     imageUrl: "/images/arena.jpg"
   },
   {
-    id: 7,
+    id: "champu-perro-7",
     name: "Champú para Perros - Aloe Vera",
     category: "Salud y bienestar",
     subcategory: "Champú",
@@ -78,7 +78,7 @@ const mockDataPets = [
     imageUrl: "/images/champu.jpg"
   },
   {
-    id: 8,
+    id: "transporte-gatos-8",
     name: "Transportín para Gatos",
     category: "Transporte y seguridad",
     subcategory: "Transportadores",
@@ -89,7 +89,7 @@ const mockDataPets = [
     imageUrl: "/images/transporte.jpg"
   },
   {
-    id: 9,
+    id: "correa-arnes-gatos-9",
     name: "Correa + Arnés para Gatos",
     category: "Transporte y seguridad",
     subcategory: "Correas",
@@ -101,7 +101,7 @@ const mockDataPets = [
     imageUrl: "/images/arnes.jpg"
   },
     {
-    id: 10,
+    id: "bolsa-desechos-compost-10",
     name: "Bolsas para desechos 4 rollos",
     category: "Salud y bienestar",
     subcategory: "Bolsas compostables",
@@ -112,7 +112,7 @@ const mockDataPets = [
     imageUrl: "/images/bolsa.jpg"
   },
      {
-    id: 11,
+    id: "plato-rosa-perros-11",
     name: "Plato Rosa para Perros - Talla M",
     category: "Accesorios",
     subcategory: "Platos",
@@ -124,7 +124,7 @@ const mockDataPets = [
     imageUrl: "/images/plato.jpg"
   },
     {
-    id: 12,
+    id: "parka-polar-perros-12",
     name: "Parka con Polar para Perros - Talla S",
     category: "Vestuario",
     subcategory: "Parkas",

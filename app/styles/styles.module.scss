@@ -2,11 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
 
-.backgrounds{
-background-color: #e89005;
+.backgrounds {
+    background-color: #e89005;
 }
 
-.text{
-    color:#f7f5fb;
+.text {
+    color: #f7f5fb;
+}
 
+.bg {
+    position: relative;
+    background-image: url('https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 224, 198, 0.3);
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
 }
