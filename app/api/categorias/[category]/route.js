@@ -1,39 +1,28 @@
-// import mockDataPets from '../../../data/products';
 import { NextResponse } from 'next/server';
-import { collection, getDocs, query } from 'firebase/firestore';
-import {db} from '../../../../firebase/config';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../../firebase/config';
+import { revalidateTag } from 'next/cache';
 
-// const sleep = (timer) =>{
-//     return new Promise((resolve) => 
-//         setTimeout(resolve, timer)
-//     )};
-
-export async function GET(request, { params }) {
+async function getProducts({ params }) {
     try {
         const { category } = params;
-     
-
         const productosRef = collection(db, 'productos');
-        const data = category === 'all' ? productosRef : query(productosRef, where('categorias', '==', category));
+        const data = category === 'all' ? productosRef : query(productosRef, where('category', '==', category.toLowerCase()));
         const querySnapshot = await getDocs(data);
-
-        const docs = querySnapshot.docs.map(doc => doc.data());
-        return NextResponse.json(docs);
+        const docs = querySnapshot.docs.map((doc) => doc.data());
+        return docs;
     } catch (error) {
-        console.error('Error fetching products:', error);
-        return NextResponse.json({ error: 'Error fetching products' }, { status: 500 });
+        console.error('Error getting documents from api: ', error);
     }
 }
 
-
-    // const data = 
-    // category === 'all' 
-    // ? mockDataPets : mockDataPets.filter(
-    // (product) => product.category.toLowerCase() === decodedCategory.toLowerCase()
-    // );
-
-    // // await sleep(2000);
-
-
-    // return NextResponse.json(data);
-
+export async function GET(request, { params }) {
+    try {
+        const products = await getProducts({ params });
+        revalidateTag('categorias', 60);
+        return NextResponse.json(products);
+    } catch (error) {
+        console.error('Error getting products from GET method: ', error);
+        return NextResponse.json({ error: 'Error getting products from GET method' }, { status: 500 });
+    }
+}

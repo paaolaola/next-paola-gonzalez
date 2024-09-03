@@ -5,7 +5,6 @@
 // import mockDataPets from '../data/products';
 // import BtnRoterBack from '../components/BtnRoterBack';
 
-
 // const Categories = () => {
 //     return (
 //         <>
@@ -19,48 +18,24 @@
 // export default Categories;
 
 //Código con la API
-'use client';
 
 import ProductList from '../components/ProductList';
-import BtnRoterBack from '../components/BtnRoterBack';
-import { useEffect, useState } from 'react';
+import { Suspense } from 'react';
+import Image from 'next/image';
+import Paw from '/public/images/paw-primary.png';
 
 
-const getProducts = async () => {
-    const response = await fetch('/api/categorias/all',
-        {cache:'default',
-        next:{
-            revalidate:3600
-        }},
-    );
-    
-    const products = await response.json();
-    return products;
-
-}
-
-const Categories = () => {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const products = await getProducts();
-                setProducts(products);
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        };
-
-        fetchProducts();
-    }, []);
-
+const Categories = async ({ params }) => {
+    const { id } = params;
     return (
         <>
-            <BtnRoterBack />
             <h1 className='text-2xl px-6 text-center font-extrabold'>La mejor calidad para tu peludito incondicional 🐈 🐶</h1>
-            <ProductList data={products} />
-            
+            <Suspense fallback={ <div className='w-full animate-pulse h-full min-h-screen flex flex-col justify-center items-center'>
+            <Image src={Paw} alt='paw' width={100} height={100} priority/>
+            <p className='font-pacifico text-primary-red-light text-xl py-5'>Cargando productos</p>
+        </div>}>
+            <ProductList id={id} />
+            </Suspense>
         </>
     );
 };

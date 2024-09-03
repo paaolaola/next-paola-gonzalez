@@ -131,7 +131,7 @@ const ContactForm=()=> {
       </div>
       <div className={`flex-1 bg-cover bg-center min-h-96 ${styles.bg}`}>
   <div className={`mx-auto flex h-full text-center justify-center items-center flex-col ${styles.content}`}>
-    <p className="text-5xl font-pacifico text-grey-light py-10 px-20">
+    <p className="text-5xl font-pacifico text-grey-light py-10">
       Síguenos en nuestras redes sociales
     </p>
     <ContactSocialMedia />
