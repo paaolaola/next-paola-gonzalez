@@ -7,6 +7,7 @@ import TopBar from "./components/topbar/TopBar";
 import {metadata} from "./data/metadata";
 import { CartProvider } from "./components/context/CartContext";
 import "../app/globals.css";
+import  NavigationMenu from "./components/NavigationMenu";
 
 
 export default function RootLayout({ children }) {
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
           <div className={`${navbarFixed ? 'fixed top-0 lg:w-full w-full z-50' : ''}`}>
             <Navbar />
           </div>
+          <NavigationMenu />
           <main className="flex-grow pt-[var(--topbar-height)]">
             {children}
           </main>

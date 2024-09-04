@@ -14,7 +14,6 @@ import Alimento from "../../public/images/alimento.png"
 import Juguetes from "../../public/images/juguetes.png"
 import Bolsas from "../../public/images/bolsas.jpg"
 import Higiene from "../../public/images/higiene.png"
-import NavigationMenu from "../components/NavigationMenu";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Parallax, Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -42,7 +41,6 @@ const subcategories = [
 
   return (
     <>
-    <NavigationMenu />
       <div className='flex flex-col lg:flex-row items-center justify-center  bg-gray-200 gap-6 py-6'>
         <div className='w-[400px] md:w-[600px] px-8 lg:px-0 relative z-0 '>
           <Swiper

@@ -96,7 +96,7 @@ const SubCategory = ({ params }) => {
 
     return (
         <>
-            <div className=' bg-grey-light flex flex-row items-center'>
+            <div className=' bg-grey-light flex flex-row items-center p-16'>
                 <h1 className=''>
                     Estás viendo la subcategoría de: <span className='font-extrabold capitalize'>{subcategory}</span>
                 </h1>
@@ -105,7 +105,13 @@ const SubCategory = ({ params }) => {
             <Image src={Paw} alt='paw' width={100} height={100} priority/>
             <p className='font-pacifico text-primary-red-light text-xl py-5'>Cargando productos</p>
         </div>}>
-                <ProductList category={category} subcategory={subcategory} />
+                <ProductList
+                    category={category} subcategory={subcategory}
+
+
+
+                
+                />
 </Suspense>
         </>
     );

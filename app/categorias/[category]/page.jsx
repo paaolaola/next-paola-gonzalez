@@ -36,7 +36,7 @@ import Paw from '/public/images/paw-primary.png';
 
 export function generateStaticParams() {
     return [
-        { category: 'all' },
+        
         { category: 'Alimentos' },
         { category: 'Juguetes' },
         { category: 'Comodidad' },
@@ -59,12 +59,12 @@ export function generateStaticParams() {
 }
 export const revalidate = 3600;
 
-const Category = ({ params }) => {
-    const { category } = params;
+const Category = async({params}) => {
 
+    const { category } = params;
     return (
         <>
-            <div className=' bg-grey-light flex flex-row items-center'>
+            <div className=' bg-grey-light flex flex-row items-center p-16'>
                 <h1 className=''>
                     Estás viendo la categoría de: <span className='font-extrabold capitalize'>{category}</span>
                 </h1>
@@ -73,7 +73,15 @@ const Category = ({ params }) => {
             <Image src={Paw} alt='paw' width={100} height={100} priority/>
             <p className='font-pacifico text-primary-red-light text-xl py-5'>Cargando productos</p>
         </div>}>
-            <ProductList category={category} />
+            <ProductList 
+            category={category}
+            
+
+
+            />
+            
+
+
             </Suspense>
 
         </>

@@ -10,6 +10,7 @@ const CartItem = ({ product }) => {
     const handleRemove = () => {
         removeFromCart(id);
     };
+
     return (
         <li className='flex flex-row items-center justify-between p-4 border-b border-gray-200'>
             <div className='flex flex-row items-center space-x-4'>
@@ -22,7 +23,7 @@ const CartItem = ({ product }) => {
             </div>
             <div className='flex flex-col items-end'>
                 <p className='text-gray-500 text-sm'>Cantidad: {quantity}</p>
-                <Button onClick={handleRemove} className='bg-gray-400 text-grey-light h-10 my-2' variant='disabled'>Eliminar</Button>
+                <Button onClick={handleRemove} className='h-8' variant='orange'>Eliminar</Button>
             </div>
         </li>
     );

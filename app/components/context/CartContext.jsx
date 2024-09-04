@@ -1,24 +1,27 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
-const CartContext = createContext();
-
-export const useCartContext = () => useContext(CartContext);
+export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (product) => {
-        setCart( [...cart, product]);
+    useEffect(() => {
+       console.log(cart);
+    }, [cart]);
+   
+
+    const addToCart = (item) => {
+        setCart( [...cart, item]);
     };
 const isInCart = (id) => {
-    return cart.some(product => product.id === id);
+    return cart.some(item => item.id === id);
 }
 
 const totalCart = () =>{
 
-return cart.reduce((acc, product) => acc + product.price * product.quantity, 0);
+return cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 }
 
 const emptyCart = () => {
@@ -40,3 +43,5 @@ const emptyCart = () => {
         </CartContext.Provider>
     );
 };
+
+export const useCartContext = () => useContext(CartContext);

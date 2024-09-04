@@ -56,7 +56,7 @@ const ContactForm=()=> {
   return (
     <>
     <div className="flex flex-col lg:flex-row min-h-screen h-full">
-    <div className="flex flex-col justify-center items-center flex-1 ">
+    <div className="flex flex-col justify-center items-center flex-1 bg-orange-50">
       <h1 className="text-6xl py-10 text-center text-primary-red-light font-bebas font-extrabold ">
         ¿Necesitas ayuda? 
       </h1>
@@ -113,7 +113,7 @@ const ContactForm=()=> {
                   <Textarea
                     placeholder="Tu mensaje"
                     {...field}
-                    className="border-primary-red-light border-2"
+                    className="border-primary-red-light border-2 bg-orange-50"
                   />
                 </FormControl>
                 <FormMessage>
@@ -129,7 +129,7 @@ const ContactForm=()=> {
       )}
       </Form>
       </div>
-      <div className={`flex-1 bg-cover bg-center min-h-96 ${styles.bg}`}>
+      <div className={`flex-1 bg-cover bg-center min-h-96 ${styles.bgContact}`}>
   <div className={`mx-auto flex h-full text-center justify-center items-center flex-col ${styles.content}`}>
     <p className="text-5xl font-pacifico text-grey-light py-10">
       Síguenos en nuestras redes sociales
