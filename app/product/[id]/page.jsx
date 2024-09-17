@@ -24,7 +24,8 @@ const ProductDetail = ({ params }) => {
                 const data = await res.json();
                 setProduct(data);
             } catch (error) {
-                setError('Error al cargar el producto');
+                console.error(error
+                );
             }
         };
 
