@@ -15,7 +15,7 @@ const ProductDetail = ({ params }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/product/${id}`,{
+                const res = await fetch(`https://degatosyperros.vercel.app/api/product/${id}`,{
                     cache: 'force-cache',
                     next:{
                         revalidate: 3600}

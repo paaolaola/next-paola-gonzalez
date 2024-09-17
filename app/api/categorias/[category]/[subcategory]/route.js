@@ -6,7 +6,7 @@ import { revalidateTag } from 'next/cache';
 
 export async function GET(request, { params }) {
     const { category, subcategory } = params;
-    const q = query(collection(db, 'categorias'), where('category', '==', category), where('subcategory', '==', subcategory));
+    const q = query(collection(db, 'categorias'), where('category', '===', category), where('subcategory', '===', subcategory));
     const querySnapshot = await getDocs(q);
     const data = querySnapshot.docs.map((doc) => doc.data());
     return NextResponse.json(data);

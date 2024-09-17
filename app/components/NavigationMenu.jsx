@@ -22,7 +22,7 @@ const NavMenu = () => {
        
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/categorias/all'); 
+                const response = await fetch('https://degatosyperros.vercel.app/api/categorias/all'); 
                 const data = await response.json();
 
                 

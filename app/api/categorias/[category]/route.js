@@ -7,7 +7,7 @@ async function getProducts({ params }) {
     try {
         const { category } = params;
         const productosRef = collection(db, 'productos');
-        const data = category === 'all' ? productosRef : query(productosRef, where('category', '==', category.toLowerCase()));
+        const data = category === 'all' ? productosRef : query(productosRef, where('category', '===', category.toLowerCase()));
         const querySnapshot = await getDocs(data);
         const docs = querySnapshot.docs.map((doc) => doc.data());
         return docs;

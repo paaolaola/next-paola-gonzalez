@@ -2,9 +2,9 @@ import React from 'react';
 import ProductCard from '../components/ProductCard';
 
 
-const ALL_PRODUCTS_URL = 'http://localhost:3000/api/categorias/all';
-const CATEGORY_URL = (category) => `http://localhost:3000/api/categorias/${category}`;
-const SUBCATEGORY_URL = (category, subcategory) => `http://localhost:3000/api/categorias/${category}/${subcategory}`;
+const ALL_PRODUCTS_URL = 'https://degatosyperros.vercel.app/api/categorias/all';
+const CATEGORY_URL = (category) => `https://degatosyperros.vercel.app/api/categorias/${category}`;
+const SUBCATEGORY_URL = (category, subcategory) => `https://degatosyperros.vercel.app/api/categorias/${category}/${subcategory}`;
 
 
 const fetchProducts = async (categories, category, subcategory) => {
