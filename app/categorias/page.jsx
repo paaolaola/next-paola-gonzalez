@@ -7,7 +7,7 @@ export const generateMetadata = () => {
     return {
         title: `Todas las categorías | De Gatos & Perros`,
         description: 'Los mejores productos para tu amigo peludito',
-        metadataBase: new URL('https://degatosyperros.vercel.app/categorias/all/'),
+        metadataBase: new URL('https://degatosyperros.vercel.app/categorias'),
         openGraph: {
             title: `Todas las categorías | De Gatos & Perros`,
             description: 'Los mejores productos para tu amigo peludito',
