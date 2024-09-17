@@ -65,6 +65,18 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import Paw from '/public/images/paw-primary.png';
 
+export async function generateMetadata({ params, searchParams }) {
+    const subcategory = params.subcategory;
+    const products = await fetch(`http://localhost:3000/api/categorias/${subcategory}`);
+    return {
+        title: `Subcategorías | De Gatos & Perros`,
+        description: 'Los mejores productos para tu amigo peludito',
+        url: products,
+        openGraph: {
+            images: ['/public/images/paw-primary.png'],
+        },
+    };
+}
 
 export function generateStaticParams() {
     return [ 

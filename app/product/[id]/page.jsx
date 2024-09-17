@@ -6,32 +6,34 @@ import { Button } from '../../components/ui/button';
 import CartWhite from '../../components/icon/icons/cartWhite.svg';
 import { useCartContext } from '../../components/context/CartContext';
 
+
 const ProductDetail = ({ params }) => {
     const { id } = params;
     const { addToCart } = useCartContext();
     const [product, setProduct] = useState(null);
-    
-  
 
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/product/${id}`);
+                const res = await fetch(`http://localhost:3000/api/product/${id}`,{
+                    cache: 'force-cache',
+                    next:{
+                        revalidate: 3600}
+                        
+                });
                 const data = await res.json();
                 setProduct(data);
             } catch (error) {
                 setError('Error al cargar el producto');
-            } 
+            }
         };
 
         fetchProduct();
     }, [id]);
 
-      if (!product) {
-        return null; 
+    if (!product) {
+        return null;
     }
-
-
 
     const { name, brand, description, price, discount, status, imageUrl } = product;
 
@@ -62,7 +64,10 @@ const ProductDetail = ({ params }) => {
 
                             <div className='flex lg:flex-row flex-col justify-center items-center'>
                                 <Link href={`/cart`}>
-                                    <Button onClick={() => addToCart(product)} className='bg-primary-red flex flex-row items-center justify-center w-48 h-14 my-4 mx-2'>
+                                    <Button
+                                        onClick={() => addToCart(product)}
+                                        className='bg-primary-red flex flex-row items-center justify-center w-48 h-14 my-4 mx-2'
+                                    >
                                         <Image src={CartWhite} alt='Cart' width={30} height={30} className='mr-2' priority />
                                         Añadir al carrito
                                     </Button>

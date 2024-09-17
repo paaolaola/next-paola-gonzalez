@@ -39,7 +39,7 @@ const ProductCard = ({ id, name, brand, description, price, discount, status, im
                 <div className='flex justify-evenly items-center flex-grow'>
                     {status === true ? (
                         <Link href={'/cart'}>
-                            <Button onClick={() => addToCart()}  className='bg-primary-red h-10 my-2'>Añadir al carrito</Button>
+                            <Button onClick={addToCart}  className='bg-primary-red h-10 my-2'>Añadir al carrito</Button>
                         </Link>
                     ) : (
                         <Button className='bg-gray-400 text-grey-light h-10 my-2' variant='disabled'>

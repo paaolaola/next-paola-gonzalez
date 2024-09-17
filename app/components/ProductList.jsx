@@ -1,12 +1,12 @@
 import React from 'react';
 import ProductCard from '../components/ProductCard';
 
-// Constantes para las URLs de la API
+
 const ALL_PRODUCTS_URL = 'http://localhost:3000/api/categorias/all';
 const CATEGORY_URL = (category) => `http://localhost:3000/api/categorias/${category}`;
 const SUBCATEGORY_URL = (category, subcategory) => `http://localhost:3000/api/categorias/${category}/${subcategory}`;
 
-// Función para obtener los datos desde la API
+
 const fetchProducts = async (categories, category, subcategory) => {
     let apiUrl;
 
@@ -40,7 +40,7 @@ const ProductList = async ({ categories = 'all', category, subcategory }) => {
         );
     } catch (error) {
         console.error('Error fetching products:', error);
-        return <div>Error loading products</div>;
+        return <div>Error cargando los productos</div>;
     }
 };
 
