@@ -7,8 +7,8 @@ import TopBar from './components/topbar/TopBar';
 import { metadata } from './data/metadata';
 import { CartProvider } from './components/context/CartContext';
 import NavigationMenu from './components/NavigationMenu';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import '../app/globals.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function RootLayout({ children }) {
     const [scrollY, setScrollY] = useState(0);
@@ -54,11 +54,13 @@ export default function RootLayout({ children }) {
                             <Navbar />
                         </div>
                         <NavigationMenu />
-                        <main className='flex-grow pt-[var(--topbar-height)]'>{children}</main>
+                        <main className='flex-grow pt-[var(--topbar-height)]'>
+                            {children}
+                        </main>
                         <Footer />
                     </div>
+                            <SpeedInsights />
                 </CartProvider>
-                <SpeedInsights />
             </body>
         </html>
     );
