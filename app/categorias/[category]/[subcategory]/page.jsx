@@ -65,19 +65,37 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import Paw from '/public/images/paw-primary.png';
 
+
 export async function generateMetadata({ params, searchParams }) {
+    const category = params.category;
     const subcategory = params.subcategory;
-    const products = await fetch(`http://localhost:3000/api/categorias/${subcategory}`);
+    const categorias = await fetch(`https://degatosyperros.vercel.app/api/categorias/${category}/${subcategory}`);
     return {
         title: `Subcategorías | De Gatos & Perros`,
         description: 'Los mejores productos para tu amigo peludito',
-        url: products,
+        metadataBase: new URL(`https://degatosyperros.vercel.app/api/categorias/${category}/${subcategory}`),
         openGraph: {
-            images: ['/public/images/paw-primary.png'],
+            title: `Subcategorías | De Gatos & Perros`,
+            description: 'Los mejores productos para tu amigo peludito',
+            url: (`https://degatosyperros.vercel.app/api/categorias/${category}/${subcategory}`),
+            images: [
+                {
+                    url: '/paw-primary.png',
+                    width: 800,
+                    height: 600,
+                    alt: 'Patita de gato',
+                },
+            ],
+        },
+        twitter: {
+            card: '/apple-icon.png',
+            site: (`https://degatosyperros.vercel.app/api/categorias/${category}/${subcategory}`),
+            title: `Subcategorías | De Gatos & Perros`,
+            description: 'Patita de gato',
+            images: ['/apple-icon.png'],
         },
     };
 }
-
 export function generateStaticParams() {
     return [ 
         { category: 'Alimentos' }, 

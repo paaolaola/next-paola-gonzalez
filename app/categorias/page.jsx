@@ -3,20 +3,35 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import Paw from '/public/images/paw-primary.png';
 
-export async function generateMetadata({ params, searchParams }) {
-    const categorias = params.categorias;
-    const products = await fetch(`http://localhost:3000/api/${categorias}`);
+export const generateMetadata = () => {
     return {
         title: `Todas las categorías | De Gatos & Perros`,
         description: 'Los mejores productos para tu amigo peludito',
-        url: products,
+        metadataBase: new URL('https://degatosyperros.vercel.app/categorias/all/'),
         openGraph: {
-            images: ['/public/images/paw-primary.png'],
+            title: `Todas las categorías | De Gatos & Perros`,
+            description: 'Los mejores productos para tu amigo peludito',
+            url: 'https://degatosyperros.vercel.app/categorias/all/',
+            images: [
+                {
+                    url: '/paw-primary.png',
+                    width: 800,
+                    height: 600,
+                    alt: 'Patita de gato',
+                },
+            ],
+        },
+        twitter: {
+            card: '/apple-icon.png',
+            site: 'https://degatosyperros.vercel.app/categorias/all/',
+            title: `Todas las categorías | De Gatos & Perros`,
+            description: 'Patita de gato',
+            images: ['/apple-icon.png'],
         },
     };
-}
+};
 
-const Categories = async ({ params }) => {
+const Categorias = async ({ params }) => {
     const { categorias } = params;
 
     return (
@@ -30,10 +45,10 @@ const Categories = async ({ params }) => {
                     </div>
                 }
             >
-                <ProductList categories={categorias} />
+                <ProductList categorias={categorias} />
             </Suspense>
         </>
     );
 };
 
-export default Categories;
+export default Categorias;

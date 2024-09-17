@@ -34,22 +34,51 @@ import { Suspense } from 'react';
 import Image from 'next/image';
 import Paw from '/public/images/paw-primary.png';
 
+// export async function generateMetadata({ params, searchParams }) {
+//     const category = params.category;
+//     const products = await fetch(`http://localhost:3000/api/categorias/${category}`);
+//     return {
+//         title: `Categorías | De Gatos & Perros`,
+//         description: 'Los mejores productos para tu amigo peludito',
+//         url: products,
+//         openGraph: {
+//             images: ['/public/images/paw-primary.png'],
+//         },
+//     };
+// }
+
 export async function generateMetadata({ params, searchParams }) {
     const category = params.category;
-    const products = await fetch(`http://localhost:3000/api/categorias/${category}`);
+    const categorias = await fetch(`https://degatosyperros.vercel.app/api/categorias/${category}`);
     return {
         title: `Categorías | De Gatos & Perros`,
         description: 'Los mejores productos para tu amigo peludito',
-        url: products,
+        metadataBase: new URL(`https://degatosyperros.vercel.app/api/categorias/${category}`),
         openGraph: {
-            images: ['/public/images/paw-primary.png'],
+            title: `Categorías | De Gatos & Perros`,
+            description: 'Los mejores productos para tu amigo peludito',
+            url: (`https://degatosyperros.vercel.app/api/categorias/${category}`),
+            images: [
+                {
+                    url: '/paw-primary.png',
+                    width: 800,
+                    height: 600,
+                    alt: 'Patita de gato',
+                },
+            ],
+        },
+        twitter: {
+            card: '/apple-icon.png',
+            site: (`https://degatosyperros.vercel.app/api/categorias/${category}`),
+            title: `Categorías | De Gatos & Perros`,
+            description: 'Patita de gato',
+            images: ['/apple-icon.png'],
         },
     };
 }
 
 export function generateStaticParams() {
     return [
-        
         { category: 'Alimentos' },
         { category: 'Juguetes' },
         { category: 'Comodidad' },
@@ -72,8 +101,7 @@ export function generateStaticParams() {
 }
 export const revalidate = 3600;
 
-const Category = async({params}) => {
-
+const Category = async ({ params }) => {
     const { category } = params;
     return (
         <>
@@ -82,21 +110,16 @@ const Category = async({params}) => {
                     Estás viendo la categoría de: <span className='font-extrabold capitalize'>{category}</span>
                 </h1>
             </div>
-<Suspense fallback={ <div className='w-full animate-pulse h-full min-h-screen flex flex-col justify-center items-center'>
-            <Image src={Paw} alt='paw' width={100} height={100} priority/>
-            <p className='font-pacifico text-primary-red-light text-xl py-5'>Cargando productos</p>
-        </div>}>
-            <ProductList 
-            category={category}
-            
-
-
-            />
-            
-
-
+            <Suspense
+                fallback={
+                    <div className='w-full animate-pulse h-full min-h-screen flex flex-col justify-center items-center'>
+                        <Image src={Paw} alt='paw' width={100} height={100} priority />
+                        <p className='font-pacifico text-primary-red-light text-xl py-5'>Cargando productos</p>
+                    </div>
+                }
+            >
+                <ProductList category={category} />
             </Suspense>
-
         </>
     );
 };
