@@ -6,8 +6,9 @@ import Navbar from './components/navbar/Navbar';
 import TopBar from './components/topbar/TopBar';
 import { metadata } from './data/metadata';
 import { CartProvider } from './components/context/CartContext';
-import '../app/globals.css';
 import NavigationMenu from './components/NavigationMenu';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import '../app/globals.css';
 
 export default function RootLayout({ children }) {
     const [scrollY, setScrollY] = useState(0);
@@ -57,6 +58,7 @@ export default function RootLayout({ children }) {
                         <Footer />
                     </div>
                 </CartProvider>
+                <SpeedInsights />
             </body>
         </html>
     );
